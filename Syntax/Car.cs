@@ -3,8 +3,6 @@ using System;
 namespace HelloWorld
 {
    
-    // enum Teacher { Math, History, Literature = 'a', Geography }
-
     enum CarMode { Eco, Normal, Sport }
 
     class Car
