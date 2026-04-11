@@ -117,13 +117,14 @@ class VehicleRentalApp
 
         public override decimal CalculateRentalCost(int days, bool hasInsurance)
         {
-            if (hasInsurance) return ApplyTax((EngineCC1 > 600) ? (1.2m * PricePerDay * days) : PricePerDay * days + 15 * days);
+            if (hasInsurance) return ApplyTax((EngineCC1 > 600) ? (1.2m * PricePerDay * days + 15 * days) : PricePerDay * days + 15 * days);
             return CalculateRentalCost(days);
         }
 
         public override string GetInfo()
         {
-            return $"INFO\nBrand: {Brand}\nModel: {Model}\nYear: {Year}\nPrice per day: {PricePerDay}\nEngine CC: {EngineCC1}";        }
+            return $"INFO\nBrand: {Brand}\nModel: {Model}\nYear: {Year}\nPrice per day: {PricePerDay}\nEngine CC: {EngineCC1}";
+        }
         }
 
     public class Customer
@@ -134,7 +135,7 @@ class VehicleRentalApp
 
         public string Name { get => name; private set  => name = value; }
         public string Email { get => email; private set  => email = value; }
-        internal Vehicle CurrentRental { get => currentRental; set => currentRental = value; }
+        private Vehicle CurrentRental { get => currentRental; set => currentRental = value; }
 
         public Customer (string name, string email)
         {
