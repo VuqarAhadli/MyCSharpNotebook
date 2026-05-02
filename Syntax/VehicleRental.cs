@@ -1,7 +1,6 @@
 using System;
 class VehicleRentalApp
 {
-
     public abstract class Vehicle
     {
         private string brand;
