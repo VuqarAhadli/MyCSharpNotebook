@@ -1,5 +1,9 @@
 class MagiciansGame
 {
+
+    /*!
+        Deterministic random seed 
+    */
     private static Random rnd = new Random(0xBEEF);
     public enum MagicianTypes
     {
@@ -12,7 +16,15 @@ class MagiciansGame
     {
         private MagicianTypes typee;
         private int health;
+
+        /*!
+            Experience attribute stays the same thoughout the program
+        */
         private int experience;
+
+        /*!
+            Mana attribute and its related method(s) are or is unused
+        */
         private int mana;
 
         public int Health { get => health; 
@@ -37,11 +49,15 @@ class MagiciansGame
             Health += 10 * amoutOfHours;
         }
 
+        
         public void ManaPotion (int amountOfPotions)
         {
             Mana += amountOfPotions;
         }
 
+        /*!
+            Added TakeDamage(int x) method in order not to expose Health field publicly
+        */
         public void TakeDamage (int damage)
         {
             Health -= damage;
@@ -70,6 +86,10 @@ class MagiciansGame
 
         public void DistanceAttack (Magician enemy)
         {
+            /*!
+                Experience is casted to double in order not to get
+                constantly 0 between the experience levels 1-49
+            */
             double damage = Accuracy + (double)Experience / 50;
             if (enemy.Typee == MagicianTypes.Waterbender) damage /= 2;
             if (enemy.Typee == MagicianTypes.Earthbender) damage *= 2;
@@ -93,6 +113,11 @@ class MagiciansGame
 
         public void DistanceAttack (Magician enemy)
         {
+
+            /*!
+                Experience is casted to double in order not to get
+                constantly 0 between the experience levels 1-49
+            */
             double damage = Accuracy + (double)Experience / 50;
             if (enemy.Typee == MagicianTypes.Firebender) damage *= 2;
             if (enemy.Typee == MagicianTypes.Earthbender) damage /= 2;
@@ -101,6 +126,10 @@ class MagiciansGame
 
         public void CloseAttack (Magician enemy)
         {
+            /*!
+                Experience is casted to double in order not to get
+                constantly 0 between the experience levels 1-49
+            */
             double damage = Power + (double)Experience / 50;
             if (enemy.Typee == MagicianTypes.Firebender) damage *= 2;
             if (enemy.Typee == MagicianTypes.Earthbender) damage /= 2;
@@ -121,6 +150,10 @@ class MagiciansGame
 
         public void CloseAttack (Magician enemy)
         {
+            /*!
+                Experience is casted to double in order not to get
+                constantly 0 between the experience levels 1-49
+            */
             double damage = Power + (double)Experience / 50;
             if (enemy.Typee == MagicianTypes.Firebender) damage /= 2;
             if (enemy.Typee == MagicianTypes.Waterbender) damage *= 2;
